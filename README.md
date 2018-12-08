@@ -58,6 +58,7 @@ echo $list->groupBy(
                 function(User $user) { return $user->age; })
           ->serialize();
 ```
+Serialize converts to JSON
 ```json
 {
     "Washington": {
@@ -112,6 +113,7 @@ echo $list->sort()
           ->toList()
           ->serialize();
 ```
+Serialize converts to JSON
 ```json
 [
     {
@@ -146,6 +148,7 @@ echo $list->sort()
           ->toList()
           ->serialize();
 ```
+Serialize converts to JSON
 ```json
 [
     {
