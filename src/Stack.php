@@ -12,9 +12,9 @@ class Stack extends Collection
     /**
      * Stack constructor.
      *
-     * @param array $source
+     * @param array $source An array to initialize stack. Array keys are not preserved. [optional]
      */
-    public function __construct(array $source = [])
+    public function __construct(array &$source = [])
     {
         parent::__construct(array_values($source));
     }

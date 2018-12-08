@@ -17,7 +17,7 @@ class Collection implements \IteratorAggregate, \Serializable, \Countable, \Json
      *
      * @param array|null $source
      */
-    protected function __construct(array $source)
+    protected function __construct(array &$source)
     {
         $this->source = $source;
     }
@@ -26,6 +26,36 @@ class Collection implements \IteratorAggregate, \Serializable, \Countable, \Json
     {
         if (is_array($this->source))
             unset($this->source);
+    }
+
+    /**
+     * Convert to an ArrayList. Array keys are not preserved.
+     *
+     * @return ArrayList
+     */
+    public final function asList(): ArrayList
+    {
+        return new ArrayList($this->source);
+    }
+
+    /**
+     * Convert to a Queue. Array keys are not preserved.
+     *
+     * @return Queue
+     */
+    public final function asQueue(): Queue
+    {
+        return new Queue($this->source);
+    }
+
+    /**
+     * Convert to a Stack. Array keys are not preserved.
+     *
+     * @return Stack
+     */
+    public final function asStack(): Stack
+    {
+        return new Stack($this->source);
     }
 
     /**
@@ -47,9 +77,11 @@ class Collection implements \IteratorAggregate, \Serializable, \Countable, \Json
     }
 
     /**
+     * Get a copy version of the internal array.
+     *
      * @return array
      */
-    public function getArrayCopy(): array
+    public final function getArrayCopy(): array
     {
         return $this->source;
     }
@@ -76,6 +108,16 @@ class Collection implements \IteratorAggregate, \Serializable, \Countable, \Json
     public function serialize()
     {
         return json_encode($this->jsonSerialize());
+    }
+
+    /**
+     * Get a reference to the internal array.
+     *
+     * @return array
+     */
+    public final function &toArray(): array
+    {
+        return $this->source;
     }
 
     /**

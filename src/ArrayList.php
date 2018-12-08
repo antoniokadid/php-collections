@@ -12,9 +12,9 @@ class ArrayList extends Collection
     /**
      * ArrayList constructor.
      *
-     * @param array $source
+     * @param array $source An array to initialize list. Array keys are not preserved. [optional]
      */
-    public function __construct(array $source = [])
+    public function __construct(array &$source = [])
     {
         parent::__construct(array_values($source));
     }
@@ -125,6 +125,7 @@ class ArrayList extends Collection
 
     /**
      * Groups the elements of a list.
+     * Grouping works <i>with a copy</i> of the internal array.
      *
      * @param callable[] ...$groupKeySelectors
      *
@@ -302,12 +303,13 @@ class ArrayList extends Collection
 
     /**
      * Initiate sorting of list.
+     * Sorting works <i>by the reference to</i> the internal array.
      *
      * @return ArrayListSorter
      */
     public function sort(): ArrayListSorter
     {
-        return new ArrayListSorter($this->source);
+        return new ArrayListSorter($this);
     }
 
     /**
@@ -346,5 +348,4 @@ class ArrayList extends Collection
 
         return new ArrayList(array_slice($this->source, 0, $count));
     }
-
 }
