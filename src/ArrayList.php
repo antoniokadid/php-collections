@@ -124,41 +124,59 @@ class ArrayList extends Collection
     }
 
     /**
+     * Returns the first actual element from the list. If the list is empty NULL is returned.
+     *
+     * @return mixed|null
+     */
+    public function flat()
+    {
+        if ($this->any())
+            return $this->take(1)->source[0];
+
+        return NULL;
+    }
+
+    /**
      * Groups the elements of a list.
      * Grouping works <i>with a copy</i> of the internal array.
      *
      * @param callable[] ...$groupKeySelectors
      *
-     * @return Collection
+     * @return ArrayList
      */
-    public function groupBy(...$groupKeySelectors): Collection
+    public function groupBy(...$groupKeySelectors): ArrayList
     {
         $keySelector = array_shift($groupKeySelectors);
         if (!is_callable($keySelector))
             return $this;
 
-        $objMap = new Map();
+        $result = new ArrayList();
 
         foreach ($this->source as $value) {
-            $offset = call_user_func_array($keySelector, [$value]);
+            $key = call_user_func_array($keySelector, [$value]);
 
-            if (!$objMap->offsetExists($offset))
-                $objMap[$offset] = new ArrayList();
+            $group = $result->find(function(ArrayListGroup $group) use ($key) { return $group->key === $key; })
+                            ->flat();
+            if ($group == NULL)
+            {
+                $group = new ArrayListGroup($key, new ArrayList());
+                $result->add($group);
+            }
 
-            $objMap[$offset]->add($value);
+            $group->group->add($value);
         }
 
         if (count($groupKeySelectors) == 0)
-            return $objMap;
+            return $result;
 
         array_walk(
-            $objMap->source,
+            $result->source,
             function (&$value, $index, $selectors) {
-                if ($value instanceof ArrayList)
-                    $value = call_user_func_array([$value, 'groupBy'], $selectors);
+                if ($value instanceof ArrayListGroup)
+                    $value->group = call_user_func_array([$value->group, 'groupBy'], $selectors);
             }, $groupKeySelectors);
 
-        return $objMap;
+        return $result;
     }
 
     /**
