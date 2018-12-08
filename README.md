@@ -100,6 +100,7 @@ $list = new ArrayList();
 
 $list->add(new User('Natural1', 27, 'Phoenix'));
 $list->add(new User('Natural13', 27, 'Phoenix'));
+$list->add(new User('Natural21', 28, 'Phoenix'));
 $list->add(new User('Natural14', 27, 'Phoenix'));
 $list->add(new User('Natural2', 27, 'Phoenix'));
 ```
@@ -108,7 +109,7 @@ $list->add(new User('Natural2', 27, 'Phoenix'));
 
 ```php
 echo $list->sort()
-          ->asc(function(User $user) { return $user->age; })
+          ->desc(function(User $user) { return $user->age; })
           ->asc(function(User $user) { return $user->name; })
           ->toList()
           ->serialize();
@@ -116,6 +117,11 @@ echo $list->sort()
 Serialize converts to JSON
 ```json
 [
+    {
+        "name": "Natural21",
+        "age": 28,
+        "city": "Phoenix"
+    },
     {
         "name": "Natural1",
         "age": 27,
@@ -143,7 +149,7 @@ Serialize converts to JSON
 
 ```php
 echo $list->sort()
-          ->asc(function(User $user) { return $user->age; })
+          ->desc(function(User $user) { return $user->age; })
           ->asc(function(User $user) { return $user->name; }, TRUE) // <-- TRUE is for natural sorting
           ->toList()
           ->serialize();
@@ -151,6 +157,11 @@ echo $list->sort()
 Serialize converts to JSON
 ```json
 [
+    {
+        "name": "Natural21",
+        "age": 28,
+        "city": "Phoenix"
+    },
     {
         "name": "Natural1",
         "age": 27,
