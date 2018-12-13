@@ -5,7 +5,7 @@ A PHP library that defines collections of objects.
 
 ## Installation
 
-composer require antoniokadid/php-collections
+composer require antoniokadid/php-collections:dev-master
 
 ## Requirements
 * PHP 7.1
