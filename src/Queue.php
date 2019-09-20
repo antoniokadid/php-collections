@@ -1,11 +1,11 @@
 <?php
 
-namespace Collections;
+namespace AntonioKadid\Collections;
 
 /**
  * Class Queue
  *
- * @package Collections
+ * @package AntonioKadid\Collections
  */
 class Queue extends Collection
 {

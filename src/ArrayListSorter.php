@@ -1,11 +1,13 @@
 <?php
 
-namespace Collections;
+namespace AntonioKadid\Collections;
+
+use DateTime;
 
 /**
  * Class ArrayListSorter
  *
- * @package Collections
+ * @package AntonioKadid\Collections
  */
 class ArrayListSorter
 {
@@ -60,7 +62,7 @@ class ArrayListSorter
                 $result;
         }
 
-        if (($value1 instanceof \DateTime) && ($value2 instanceof \DateTime)) {
+        if (($value1 instanceof DateTime) && ($value2 instanceof DateTime)) {
             if ($value1 == $value2)
                 return self::compare($item1, $item2, $callbacks);
 
@@ -93,7 +95,7 @@ class ArrayListSorter
     /**
      * @param string $value1
      * @param string $value2
-     * @param int $flags
+     * @param int    $flags
      *
      * @return int
      */
@@ -136,8 +138,8 @@ class ArrayListSorter
      * Defines ascending sorting.
      *
      * @param callable $selector
-     * @param bool $naturalSorting
-     * @param bool $caseSensitive
+     * @param bool     $naturalSorting
+     * @param bool     $caseSensitive
      *
      * @return ArrayListSorter
      */
@@ -167,8 +169,8 @@ class ArrayListSorter
      * Defines descending sorting.
      *
      * @param callable $selector
-     * @param bool $naturalSorting
-     * @param bool $caseSensitive
+     * @param bool     $naturalSorting
+     * @param bool     $caseSensitive
      *
      * @return ArrayListSorter
      */

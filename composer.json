@@ -1,6 +1,6 @@
 {
     "name": "antoniokadid/php-collections",
-    "description": "A PHP library that defines collections of objects.",
+    "description": "A PHP WYSIWYG library that defines collections of objects.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Collections\\": "src/"
+            "AntonioKadid\\Collections\\": "src/"
         }
     }
 }

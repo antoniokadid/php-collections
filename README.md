@@ -1,11 +1,11 @@
 # php-collections
-A PHP library that defines collections of objects.
+A PHP WYSIWYG library that defines collections of objects.
 
-*Project under development.*
+*Project under development and may be heavily change. Use at your own risk.*
 
 ## Installation
 
-composer require antoniokadid/php-collections:dev-master
+composer require antoniokadid/php-collections
 
 ## Requirements
 * PHP 7.1
@@ -13,9 +13,9 @@ composer require antoniokadid/php-collections:dev-master
 
 ## Features
 
-Collections are created with method chaining in mind.
+AntonioKadid\Collections are created with method chaining in mind.
 
-#### Collections
+#### AntonioKadid\Collections
 * ArrayList
   * Sorting
   * Grouping

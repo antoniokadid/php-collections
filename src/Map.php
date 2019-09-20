@@ -1,13 +1,17 @@
 <?php
 
-namespace Collections;
+namespace AntonioKadid\Collections;
+
+use ArrayAccess;
+use DateTime;
+use DateTimeZone;
 
 /**
  * Class Map
  *
- * @package Collections
+ * @package AntonioKadid\Collections
  */
-class Map extends Collection implements \ArrayAccess
+class Map extends Collection implements ArrayAccess
 {
     /**
      * Map constructor.
@@ -22,7 +26,7 @@ class Map extends Collection implements \ArrayAccess
     /**
      * Get the value at offset as array.
      *
-     * @param mixed $offset
+     * @param mixed      $offset
      * @param array|NULL $default
      *
      * @return array|NULL
@@ -40,7 +44,7 @@ class Map extends Collection implements \ArrayAccess
     /**
      * Get the value at offset as boolean.
      *
-     * @param mixed $offset
+     * @param mixed     $offset
      * @param bool|NULL $default
      *
      * @return bool|NULL
@@ -61,21 +65,21 @@ class Map extends Collection implements \ArrayAccess
     /**
      * Get the value at offset as DateTime.
      *
-     * @param mixed $offset
-     * @param \DateTime|NULL $default
-     * @param string $expectedFormat
-     * @param string $timezone
+     * @param mixed          $offset
+     * @param DateTime|NULL $default
+     * @param string         $expectedFormat
+     * @param string         $timezone
      *
-     * @return \DateTime|NULL
+     * @return DateTime|NULL
      */
-    public function getDateTime($offset, ?\DateTime $default = NULL, string $expectedFormat = DATE_ISO8601, string $timezone = 'UTC'): ?\DateTime
+    public function getDateTime($offset, ?DateTime $default = NULL, string $expectedFormat = DATE_ISO8601, string $timezone = 'UTC'): ?DateTime
     {
         if (!$this->offsetExists($offset))
             return $default;
 
         $value = $this->offsetGet($offset);
 
-        $dateTime = \DateTime::createFromFormat($expectedFormat, $value, new \DateTimeZone($timezone));
+        $dateTime = DateTime::createFromFormat($expectedFormat, $value, new DateTimeZone($timezone));
 
         return $dateTime === FALSE ? $default : $dateTime;
     }
@@ -83,7 +87,7 @@ class Map extends Collection implements \ArrayAccess
     /**
      * Get the value at offset as float.
      *
-     * @param mixed $offset
+     * @param mixed      $offset
      * @param float|NULL $default
      *
      * @return float|NULL
@@ -107,7 +111,7 @@ class Map extends Collection implements \ArrayAccess
     /**
      * Get the value at offset as integer.
      *
-     * @param mixed $offset
+     * @param mixed    $offset
      * @param int|NULL $default
      *
      * @return int|NULL
@@ -131,7 +135,7 @@ class Map extends Collection implements \ArrayAccess
     /**
      * Get the value at offset as a string.
      *
-     * @param mixed $offset
+     * @param mixed       $offset
      * @param string|NULL $default
      *
      * @return string|NULL
@@ -151,7 +155,7 @@ class Map extends Collection implements \ArrayAccess
     /**
      * Get the value at offset as timestamp.
      *
-     * @param mixed $offset
+     * @param mixed    $offset
      * @param int|NULL $default
      *
      * @return int|NULL
@@ -177,7 +181,7 @@ class Map extends Collection implements \ArrayAccess
     /**
      * Get the value at offset as a string (trim).
      *
-     * @param mixed $offset
+     * @param mixed       $offset
      * @param string|NULL $default
      *
      * @return string|NULL

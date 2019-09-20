@@ -1,13 +1,20 @@
 <?php
 
-namespace Collections;
+namespace AntonioKadid\Collections;
+
+use ArrayIterator;
+use Countable;
+use InvalidArgumentException;
+use IteratorAggregate;
+use JsonSerializable;
+use Serializable;
 
 /**
  * Class Collection
  *
- * @package Collections
+ * @package AntonioKadid\Collections
  */
-class Collection implements \IteratorAggregate, \Serializable, \Countable, \JsonSerializable
+class Collection implements IteratorAggregate, Serializable, Countable, JsonSerializable
 {
     /** @var array */
     protected $source;
@@ -22,10 +29,12 @@ class Collection implements \IteratorAggregate, \Serializable, \Countable, \Json
         $this->source = $source;
     }
 
+    /**
+     * Collection destructor.
+     */
     public function __destruct()
     {
-        if (is_array($this->source))
-            unset($this->source);
+        unset($this->source);
     }
 
     /**
@@ -91,7 +100,7 @@ class Collection implements \IteratorAggregate, \Serializable, \Countable, \Json
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->source);
+        return new ArrayIterator($this->source);
     }
 
     /**
@@ -111,6 +120,18 @@ class Collection implements \IteratorAggregate, \Serializable, \Countable, \Json
     }
 
     /**
+     * @inheritdoc
+     */
+    public function unserialize($serialized)
+    {
+        $data = json_decode($serialized, TRUE);
+        if ($data === FALSE)
+            throw new InvalidArgumentException('Unable to unserialize collection.');
+
+        $this->source = $data;
+    }
+
+    /**
      * Get a reference to the internal array.
      *
      * @return array
@@ -118,17 +139,5 @@ class Collection implements \IteratorAggregate, \Serializable, \Countable, \Json
     public final function &toArray(): array
     {
         return $this->source;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function unserialize($serialized)
-    {
-        $data = json_decode($serialized, TRUE);
-        if ($data === FALSE)
-            throw new \InvalidArgumentException('Unable to unserialize collection.');
-
-        $this->source = $data;
     }
 }

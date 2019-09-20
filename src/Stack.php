@@ -1,11 +1,11 @@
 <?php
 
-namespace Collections;
+namespace AntonioKadid\Collections;
 
 /**
  * Class Stack
  *
- * @package Collections
+ * @package AntonioKadid\Collections
  */
 class Stack extends Collection
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Collections;
+namespace AntonioKadid\Collections;
 
 /**
  * Class ArrayList
  *
- * @package Collections
+ * @package AntonioKadid\Collections
  */
 class ArrayList extends Collection
 {
