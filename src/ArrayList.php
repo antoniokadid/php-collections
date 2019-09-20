@@ -14,7 +14,7 @@ class ArrayList extends Collection
      *
      * @param array $source An array to initialize list. Array keys are not preserved. [optional]
      */
-    public function __construct(array &$source = [])
+    public function __construct(array $source = [])
     {
         parent::__construct(array_values($source));
     }

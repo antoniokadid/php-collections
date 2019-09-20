@@ -24,9 +24,9 @@ class Collection implements IteratorAggregate, Serializable, Countable, JsonSeri
      *
      * @param array|null $source
      */
-    protected function __construct(array &$source)
+    protected function __construct(array $source)
     {
-        $this->source = $source;
+        $this->source = &$source;
     }
 
     /**

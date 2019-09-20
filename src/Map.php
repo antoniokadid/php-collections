@@ -18,7 +18,7 @@ class Map extends Collection implements ArrayAccess
      *
      * @param array $source An array to initialize map. Array keys are preserved. [optional]
      */
-    public function __construct(array &$source = [])
+    public function __construct(array $source = [])
     {
         parent::__construct($source);
     }
