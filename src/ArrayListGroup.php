@@ -1,11 +1,11 @@
 <?php
 
-namespace AntonioKadid\Collections;
+namespace AntonioKadid\WAPPKitCore\Collections;
 
 /**
  * Class ArrayListGroup
  *
- * @package AntonioKadid\Collections
+ * @package AntonioKadid\WAPPKitCore\Collections
  */
 class ArrayListGroup
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace AntonioKadid\Collections;
+namespace AntonioKadid\WAPPKitCore\Collections;
 
 /**
  * Class Stack
  *
- * @package AntonioKadid\Collections
+ * @package AntonioKadid\WAPPKitCore\Collections
  */
 class Stack extends Collection
 {

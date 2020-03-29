@@ -1,11 +1,15 @@
 <?php
 
-namespace AntonioKadid\Collections;
+namespace AntonioKadid\WAPPKitCore\Collections;
+
+use InvalidArgumentException;
+use function max;
+use function min;
 
 /**
  * Class ArrayList
  *
- * @package AntonioKadid\Collections
+ * @package AntonioKadid\WAPPKitCore\Collections
  */
 class ArrayList extends Collection
 {
@@ -155,10 +159,11 @@ class ArrayList extends Collection
         foreach ($this->source as $value) {
             $key = call_user_func_array($keySelector, [$value]);
 
-            $group = $result->find(function(ArrayListGroup $group) use ($key) { return $group->key === $key; })
-                            ->flat();
-            if ($group == NULL)
-            {
+            $group = $result->find(function (ArrayListGroup $group) use ($key) {
+                return $group->key === $key;
+            })->flat();
+
+            if ($group == NULL) {
                 $group = new ArrayListGroup($key, new ArrayList());
                 $result->add($group);
             }
@@ -205,7 +210,7 @@ class ArrayList extends Collection
     public function last(int $count = 1): ArrayList
     {
         if ($count <= 0)
-            throw new \InvalidArgumentException(sprintf('%s cannot be less than or equal to 0.', '$count'));
+            throw new InvalidArgumentException(sprintf('%s cannot be less than or equal to 0.', '$count'));
 
         return new ArrayList(array_slice($this->source, -$count, $count));
     }
@@ -221,7 +226,7 @@ class ArrayList extends Collection
     public function max(?callable $selector = NULL)
     {
         if ($selector == NULL)
-            return \max($this->source);
+            return max($this->source);
 
         return $this
             ->select($selector)
@@ -239,7 +244,7 @@ class ArrayList extends Collection
     public function min(?callable $selector = NULL)
     {
         if ($selector == NULL)
-            return \min($this->source);
+            return min($this->source);
 
         return $this
             ->select($selector)
@@ -256,7 +261,7 @@ class ArrayList extends Collection
     public function random(int $count = 1): ArrayList
     {
         if ($count <= 0)
-            throw new \InvalidArgumentException(sprintf('%s cannot be less than or equal to 0.', '$count'));
+            throw new InvalidArgumentException(sprintf('%s cannot be less than or equal to 0.', '$count'));
 
         $values = $this->getArrayCopy();
 
@@ -362,7 +367,7 @@ class ArrayList extends Collection
     public function take(int $count = 1): ArrayList
     {
         if ($count <= 0)
-            throw new \InvalidArgumentException(sprintf('%s cannot be less than or equal to 0.', '$count'));
+            throw new InvalidArgumentException(sprintf('%s cannot be less than or equal to 0.', '$count'));
 
         return new ArrayList(array_slice($this->source, 0, $count));
     }

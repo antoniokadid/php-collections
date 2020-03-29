@@ -1,13 +1,13 @@
 <?php
 
-namespace AntonioKadid\Collections;
+namespace AntonioKadid\WAPPKitCore\Collections;
 
 use DateTime;
 
 /**
  * Class ArrayListSorter
  *
- * @package AntonioKadid\Collections
+ * @package AntonioKadid\WAPPKitCore\Collections
  */
 class ArrayListSorter
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace AntonioKadid\Collections;
+namespace AntonioKadid\WAPPKitCore\Collections;
 
 /**
  * Class Queue
  *
- * @package AntonioKadid\Collections
+ * @package AntonioKadid\WAPPKitCore\Collections
  */
 class Queue extends Collection
 {

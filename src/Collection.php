@@ -1,6 +1,6 @@
 <?php
 
-namespace AntonioKadid\Collections;
+namespace AntonioKadid\WAPPKitCore\Collections;
 
 use ArrayIterator;
 use Countable;
@@ -12,7 +12,7 @@ use Serializable;
 /**
  * Class Collection
  *
- * @package AntonioKadid\Collections
+ * @package AntonioKadid\WAPPKitCore\Collections
  */
 class Collection implements IteratorAggregate, Serializable, Countable, JsonSerializable
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace AntonioKadid\Collections;
+namespace AntonioKadid\WAPPKitCore\Collections;
 
 use ArrayAccess;
 use DateTime;
@@ -9,7 +9,7 @@ use DateTimeZone;
 /**
  * Class Map
  *
- * @package AntonioKadid\Collections
+ * @package AntonioKadid\WAPPKitCore\Collections
  */
 class Map extends Collection implements ArrayAccess
 {
@@ -65,10 +65,10 @@ class Map extends Collection implements ArrayAccess
     /**
      * Get the value at offset as DateTime.
      *
-     * @param mixed          $offset
+     * @param mixed         $offset
      * @param DateTime|NULL $default
-     * @param string         $expectedFormat
-     * @param string         $timezone
+     * @param string        $expectedFormat
+     * @param string        $timezone
      *
      * @return DateTime|NULL
      */

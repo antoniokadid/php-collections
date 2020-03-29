@@ -1,11 +1,11 @@
-# php-collections
+# php-wappkit-core-collections
 A PHP WYSIWYG library that defines collections of objects.
 
 *Project under development and may be heavily change. Use at your own risk.*
 
 ## Installation
 
-composer require antoniokadid/php-collections
+composer require antoniokadid/wappkit-core-collections
 
 ## Requirements
 * PHP 7.1
@@ -13,9 +13,8 @@ composer require antoniokadid/php-collections
 
 ## Features
 
-AntonioKadid\Collections are created with method chaining in mind.
+Created with method chaining in mind.
 
-#### AntonioKadid\Collections
 * ArrayList
   * Sorting
   * Grouping
@@ -319,4 +318,4 @@ Serialize converts to JSON
 ```
 ## LICENSE
 
-php-collections is released under MIT license.
+MIT license.

@@ -1,5 +1,5 @@
 {
-    "name": "antoniokadid/php-collections",
+    "name": "antoniokadid/wappkit-core-collections",
     "description": "A PHP WYSIWYG library that defines collections of objects.",
     "type": "library",
     "license": "MIT",
@@ -15,9 +15,21 @@
         "php": ">=7.1",
         "ext-json": "*"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
     "autoload": {
         "psr-4": {
-            "AntonioKadid\\Collections\\": "src/"
+            "AntonioKadid\\WAPPKitCore\\Collections\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AntonioKadid\\WAPPKitCore\\Collections\\": "src/",
+            "AntonioKadid\\WAPPKitCore\\Tests\\Collections\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --testdox tests"
     }
 }
