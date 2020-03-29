@@ -1,7 +1,9 @@
-# php-wappkit-core-collections
-A PHP WYSIWYG library that defines collections of objects.
+# WAPPKit Core - Collections
+Defines collections of objects.
 
-*Project under development and may be heavily change. Use at your own risk.*
+Part of Web Application Kit (WAPPKit) Core which powers WAPPKit, a privately owned CMS.
+
+*Project under development and may be subject to a lot of changes. Use at your own risk.*
 
 ## Installation
 
@@ -12,8 +14,6 @@ composer require antoniokadid/wappkit-core-collections
 * JSON Extension
 
 ## Features
-
-Created with method chaining in mind.
 
 * ArrayList
   * Sorting
