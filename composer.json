@@ -1,6 +1,6 @@
 {
     "name": "antoniokadid/wappkit-core-collections",
-    "description": "Defines collections of objects.",
+    "description": "A PHP library to define collections of objects.",
     "type": "library",
     "license": "MIT",
     "authors": [

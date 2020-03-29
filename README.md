@@ -1,5 +1,5 @@
 # WAPPKit Core - Collections
-Defines collections of objects.
+A PHP library to define collections of objects.
 
 Part of Web Application Kit (WAPPKit) Core which powers WAPPKit, a privately owned CMS.
 
